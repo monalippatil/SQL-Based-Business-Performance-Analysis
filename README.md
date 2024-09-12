@@ -233,47 +233,53 @@ Below are the steps to Create and Connect to the Database (Northwind) in the Pos
 1.  For the creation of the database, we need to execute a command in
     the DBeaver script console:
 
-    Syntax: createdb &lt;database name&gt;;
-    For Example: createdb Northwind;
-
+    > Syntax: createdb &lt;database name&gt;;
+    > For Example: createdb Northwind;
     Note: If the database is successfully created then there will be no response/error message else a relevant message will be prompted, and we need to debug and fix it.
 
-2.  Then create the schema/user under which all the tables/datasets will reside/be created. If the schema is not created, tables will be part of the default schema named "public".
+3.  Then create the schema/user under which all the tables/datasets will reside/be created. If the schema is not created, tables will be part of the default schema named "public".
 
-3.  Create a table. Following is the syntax.
+4.  Create a table.
+       Following is the syntax.
     Syntax:
-       CREATE TABLE &lt;table name&gt; (
-        &lt;"1st attribute name"&gt; &lt;data type&gt;,
-        &lt;"2nd attribute name"&gt; &lt;data type&gt;,
-        &lt;"3rd attribute name"&gt; &lt;data type&gt;
-    );
+       > CREATE TABLE &lt;table name&gt; (
+       > &lt;"1st attribute name"&gt; &lt;data type&gt;,
+       > &lt;"2nd attribute name"&gt; &lt;data type&gt;,
+      >  &lt;"3rd attribute name"&gt; &lt;data type&gt;);
     For Example:
-    > Creating table: categories with the attributes: category\_id (with
-    > datatype: smallint), category\_name (character), description (text)
-    > and picture (bytea)
-    >
-    > CREATE TABLE categories (
-    >
-    > "category\_id" smallint NOT NULL, &lt;- NOT NULL ensure value is left NULL
-    > "category\_name" character varying(15) NOT NULL,
-    > "description" text,
-    > "picture" bytea
-    > );
+        > Creating table: categories with the attributes: category\_id (with
+        > 
+        > datatype: smallint), category\_name (character), description (text)
+        > 
+        > and picture (bytea)
+        > 
+        >
+        > CREATE TABLE categories (
+        >
+        > "category\_id" smallint NOT NULL, &lt;- NOT NULL ensure value is left NULL
+        > 
+        > "category\_name" character varying(15) NOT NULL,
+        > 
+        > "description" text,
+        > 
+        > "picture" bytea
+        > 
+        > );
 
-4.  Insert data/records in the tables. Following is the syntax.
-    Syntax:
-    > INSERT INTO &lt;table name&gt; VALUES (&lt;value for 1st
-    > attribute&gt;, &lt;value for 2nd attribute&gt;, &lt;value for 3rd
-    > attribute&gt;);
+6.  Insert data/records in the tables. Following is the syntax.
+       Syntax:
+        > INSERT INTO &lt;table name&gt; VALUES (&lt;value for 1st
+        >
+        > attribute&gt;, &lt;value for 2nd attribute&gt;, &lt;value for 3rd
+        >
+        > attribute&gt;);
     For Example:
     Inserting records in the table.
-    > INSERT INTO categories VALUES (1, 'Beverages', 'Soft drinks, coffees,
-    > teas, beers, and ales', '\x');
+    > INSERT INTO categories VALUES (1, 'Beverages', 'Soft drinks, coffees, teas, beers, and ales', '\x');
     >
-    > INSERT INTO categories VALUES (2, 'Condiments', 'Sweet and savory
-    > sauces, relishes, spreads, and seasonings', '\x');
+    > INSERT INTO categories VALUES (2, 'Condiments', 'Sweet and savory sauces, relishes, spreads, and seasonings', '\x');
 
-5.  In the DBeaver tool which operates like both the Postgres database manager and SQL client to connect with the database, it will look like the below after the successful formation of all tables and records.
+8.  In the DBeaver tool which operates like both the Postgres database manager and SQL client to connect with the database, it will look like the below after the successful formation of all tables and records.
 
 <img src="./attachments/projectreadme/media/image4.png"
 style="width:5.0082in;height:3.54097in"
@@ -289,27 +295,43 @@ in the DBeaver database tool.
 
     b.  Create connection variables.
                 > host: &lt;Hostname on which Northwind Postgres database resides&gt;
+                >
                 > port: &lt;Post number of the database listens to requests&gt;
+                >
                 > user: &lt;User name to connect to the database&gt;
+                >
                 > password: &lt;"Password for the user to connect to the database"&gt;
+                >
         For instance:
                 > host: localhost
+                >
                 > port: 5432
+                >
                 > user: admin
+                >
                 > password: "\*\*\*\*\*\*\*\*\*\*\*\*\*"
+                >
 
    c.  Create a connection with the help of the above connection variables and the package.
                 > connection = psycopg2.connect(
+                >
                 > user=user,
+                >
                 > password=password,
+                >
                 > host=host,
+                >
                 > port=port,
+                >
                 > database=Northwind
+                >
                 > )
 
 d.  Check and verify the established connection.
                 > connection.get\_dsn\_parameters()
+                >
                 > connection.status
+                >
                 Note: Output 1 signifies a successful connection.
 
 ## **Answers to Business Inquiries.**
