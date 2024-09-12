@@ -1,7 +1,6 @@
-A Data Analysis Approach with SQL: Data-Driven Insights for Northwind
-Traders Company Operations
+# A Data Analysis Approach with SQL: Data-Driven Insights for Northwind Traders Company Operations
 
-**Project Overview**
+## **Project Overview**
 
 The company, Northwind Traders, specializes in food imports and exports
 across the globe. All trading data is stored in the Postgres database
@@ -10,7 +9,7 @@ Logistics, HR, Pricing, and Sales gain valuable insights from the
 company’s operational data through SQL queries. These insights are used
 to assess performance and guide decision-making for the upcoming year.
 
-**Business Problem**
+### **Business Problem**
 
 This project focuses on analysing the performance of Northwind Traders,
 a company that deals with the import and export of specialized foods
@@ -21,7 +20,7 @@ Human Resources, Pricing, and Sales. The project aims to extract
 insights to inform strategic decisions across departments by querying
 the data using SQL.
 
-**Business Inquiries**
+### **Business Inquiries**
 
 Key departments raised specific business inquiries:
 
@@ -40,7 +39,7 @@ Key departments raised specific business inquiries:
 -   **Sales Team**: Build KPIs to measure employee performance based on
     sales amount, discounts, and total orders
 
-**Data Understanding**
+## **Data Understanding**
 
 The organisation stores and maintains all its trading and transactional
 data in the Postgres database named “Northwind” consisting of 15
@@ -211,98 +210,70 @@ alt="A screenshot of a table Description automatically generated" />
 
 Table B: Highlighting datasets that help acknowledge business purposes.
 
-**Database Setup: Instructions to Create and Connect to the Postgres
-Database.**
+## **Technologies Used**
+
+-   **PostgreSQL**: Database management system for storing and querying data.
+
+-   **DBeaver**: Database management tool used for running SQL queries and managing the database.
+  
+
+## **Database Setup: Instructions to Create and Connect to the Postgres Database.**
 
 Below are the steps to position the open-source Postgres database
 environment.
 
-1.  Download and install the Postgres database as per the desired OS
-    environment.
+1.  Download and install the Postgres database as per the desired OS environment.
+    For instance, PostgreSQL version 11.17
 
-For instance, PostgreSQL version 11.17
+2.  Then download and install any integrated development environment (IDE) tool that would facilitate communication with the Postgres database.
+    For instance, download and install the DBeaver database tool which will act as a database manager and SQL client to interact with the Postgres database.
 
-1.  Then download and install any integrated development environment
-    (IDE) tool that would facilitate communication with the Postgres
-    database.
-
-For instance, download and install the DBeaver database tool which will
-act as a database manager and SQL client to interact with the Postgres
-database.
-
-Below are the steps to Create and Connect to the Database (Northwind) in
-the Postgres environment.
+Below are the steps to Create and Connect to the Database (Northwind) in the Postgres environment.
 
 1.  For the creation of the database, we need to execute a command in
     the DBeaver script console:
 
-Syntax: createdb &lt;database name&gt;;
+    Syntax: createdb &lt;database name&gt;;
+    For Example: createdb Northwind;
 
-For Example: createdb Northwind;
+    Note: If the database is successfully created then there will be no response/error message else a relevant message will be prompted, and we need to debug and fix it.
 
-Note: If the database is successfully created then there will be no
-response/error message else a relevant message will be prompted, and we
-need to debug and fix it.
+2.  Then create the schema/user under which all the tables/datasets will reside/be created. If the schema is not created, tables will be part of the default schema named "public".
 
-1.  Then create the schema/user under which all the tables/datasets will
-    reside/be created. If the schema is not created, tables will be part
-    of the default schema named "public".
+3.  Create a table. Following is the syntax.
+    Syntax:
+       CREATE TABLE &lt;table name&gt; (
+        &lt;"1st attribute name"&gt; &lt;data type&gt;,
+        &lt;"2nd attribute name"&gt; &lt;data type&gt;,
+        &lt;"3rd attribute name"&gt; &lt;data type&gt;
+    );
+    For Example:
+    > Creating table: categories with the attributes: category\_id (with
+    > datatype: smallint), category\_name (character), description (text)
+    > and picture (bytea)
+    >
+    > CREATE TABLE categories (
+    >
+    > "category\_id" smallint NOT NULL, &lt;- NOT NULL ensure value is left NULL
+    > "category\_name" character varying(15) NOT NULL,
+    > "description" text,
+    > "picture" bytea
+    > );
 
-2.  Create a table. Following is the syntax.
+4.  Insert data/records in the tables. Following is the syntax.
+    Syntax:
+    > INSERT INTO &lt;table name&gt; VALUES (&lt;value for 1st
+    > attribute&gt;, &lt;value for 2nd attribute&gt;, &lt;value for 3rd
+    > attribute&gt;);
+    For Example:
+    Inserting records in the table.
+    > INSERT INTO categories VALUES (1, 'Beverages', 'Soft drinks, coffees,
+    > teas, beers, and ales', '\x');
+    >
+    > INSERT INTO categories VALUES (2, 'Condiments', 'Sweet and savory
+    > sauces, relishes, spreads, and seasonings', '\x');
 
-Syntax:
-
-CREATE TABLE &lt;table name&gt; (
-
-&lt;"1st attribute name"&gt; &lt;data type&gt;,
-
-&lt;"2nd attribute name"&gt; &lt;data type&gt;,
-
-&lt;"3rd attribute name"&gt; &lt;data type&gt;
-
-);
-
-For Example:
-
-> Creating table: categories with the attributes: category\_id (with
-> datatype: smallint), category\_name (character), description (text)
-> and picture (bytea)
->
-> CREATE TABLE categories (
->
-> "category\_id" smallint NOT NULL, &lt;- NOT NULL ensure value is left
-> NULL
->
-> "category\_name" character varying(15) NOT NULL,
->
-> "description" text,
->
-> "picture" bytea
->
-> );
-
-1.  Insert data/records in the tables. Following is the syntax.
-
-Syntax:
-
-> INSERT INTO &lt;table name&gt; VALUES (&lt;value for 1st
-> attribute&gt;, &lt;value for 2nd attribute&gt;, &lt;value for 3rd
-> attribute&gt;);
-
-For Example:
-
-Inserting records in the table.
-
-> INSERT INTO categories VALUES (1, 'Beverages', 'Soft drinks, coffees,
-> teas, beers, and ales', '\x');
->
-> INSERT INTO categories VALUES (2, 'Condiments', 'Sweet and savory
-> sauces, relishes, spreads, and seasonings', '\x');
-
-1.  In the DBeaver tool which operates like both the Postgres database
-    manager and SQL client to connect with the database, it will look
-    like the below after the successful formation of all tables and
-    records.
+5.  In the DBeaver tool which operates like both the Postgres database manager and SQL client to connect with the database, it will look like the below after the successful formation of all tables and records.
 
 <img src="./attachments/projectreadme/media/image4.png"
 style="width:5.0082in;height:3.54097in"
@@ -311,65 +282,39 @@ alt="Graphical user interface, application, table Description automatically gene
 Figure B: After the creation of all the tables and their attributed view
 in the DBeaver database tool.
 
-1.  In addition, connecting and accessing the data from the Postgres
-    database through programming languages like Python requires the use
-    of the psycopg2 package which assists in establishing a connection
-    and interacting with the Postgres database. Following are the steps.
+6.  In addition, connecting and accessing the data from the Postgres database through programming languages like Python requires the use of the psycopg2 package which assists in establishing a connection and interacting with the Postgres database. Following are the steps.
 
-    1.  Import psycopg2 package.
+    a.  Import psycopg2 package.
+                > import psycopg2
 
-> import psycopg2
+    b.  Create connection variables.
+                > host: &lt;Hostname on which Northwind Postgres database resides&gt;
+                > port: &lt;Post number of the database listens to requests&gt;
+                > user: &lt;User name to connect to the database&gt;
+                > password: &lt;"Password for the user to connect to the database"&gt;
+        For instance:
+                > host: localhost
+                > port: 5432
+                > user: admin
+                > password: "\*\*\*\*\*\*\*\*\*\*\*\*\*"
 
-1.  Create connection variables.
+   c.  Create a connection with the help of the above connection variables and the package.
+                > connection = psycopg2.connect(
+                > user=user,
+                > password=password,
+                > host=host,
+                > port=port,
+                > database=Northwind
+                > )
 
-> host: &lt;Hostname on which Northwind Postgres database resides&gt;
->
-> port: &lt;Post number of the database listens to requests&gt;
->
-> user: &lt;User name to connect to the database&gt;
->
-> password: &lt;"Password for the user to connect to the database"&gt;
->
-> For instance:
->
-> host: localhost
->
-> port: 5432
->
-> user: admin
->
-> password: "\*\*\*\*\*\*\*\*\*\*\*\*\*"
+d.  Check and verify the established connection.
+                > connection.get\_dsn\_parameters()
+                > connection.status
+                Note: Output 1 signifies a successful connection.
 
-1.  Create a connection with the help of the above connection variables
-    and the package.
+## **Answers to Business Inquiries.**
 
-> connection = psycopg2.connect(
->
-> user=user,
->
-> password=password,
->
-> host=host,
->
-> port=port,
->
-> database=Northwind
->
-> )
-
-1.  Check and verify the established connection.
-
-> connection.get\_dsn\_parameters()
->
-> connection.status
->
-> Note: Output 1 signifies a successful connection.
-
-**Answers to Business Inquiries.**
-
-**1\] For their annual review of the company pricing strategy, the
-Product Team wants to look at the products that are currently being
-offered for a specific price range ($10 to $50).**
+**1\] For their annual review of the company pricing strategy, the Product Team wants to look at the products that are currently being offered for a specific price range ($10 to $50).**
 
 Figure 1: Number of products in the various specific price range between
 $10 and $50.
@@ -401,269 +346,7 @@ Below are some related highlights.
 -   Overall half of the available food products (26) are above $20 and
     the rest (26) are below $20 signifying it’s a 50:50 ratio.
 
-**2\] The Logistics Team wants to do a retrospection of their
-performances for the year 1997, in order to identify for which countries
-they didn’t perform well.**
-
-Figure 3: Frequency of the total number of orders (greater than 5) in
-the year of order date 1977.
-
-Figure 3 informs the frequency of the total number of orders and the
-Logistic team wishes to retrospect their performance of the year 1977
-and for the total number of orders greater than 5.
-
--   In all, 9 out of 18 orders are from the total volume of the order’s
-    group \[6 – 16\], 5 from \[16 – 26\] and just 2 each from the total
-    volume of the order’s group \[36 -46\] and \[56 – 66\].
-
--   There are no orders within the total orders group \[26 – 36\] and
-    \[46 – 56\].
-
--   The total number of all the orders is less than 66.
-
-Figure 4: Shipping country’s names in the year of order data 1977, with
-their total number of orders (&gt; 5) and average days between the order
-shipping (&gt;=3 and &lt;20 days).
-
-The above figure 4 shows the names of the shipping counties which took
-more than or equal to 3 but less than 20 average days from the date
-order was placed until shipping was completed. And countries from which
-more than 5 total orders were booked.
-
--   Almost all the countries took less than 10 average days to ship and
-    deliver the order from its ordered date except the 4 countries.
-
--   Only 4 countries set more than 10 average days, namely the UK -
-    10.42 average days for 26 total orders, the USA - 10.91 average days
-    for the highest 62 total orders, Portugal - 11.25 average days for 6
-    and Ireland 11.45 average days for 11 orders.
-
--   The UK with 62 and Germany with 60, top the rank for the maximum
-    number of orders to be confirmed, followed by Brazil and France with
-    39 and 38 total orders respectively. Rest all countries have order
-    scores less than 26.
-
-**3\] The HR Team wants to know for each employee what was their age on
-the date they joined the company and whom they currently report to.**
-
-Figure 5: Employees and their ages when they joined the company.
-
-Figure 5 displays the age of all the employees, the HR team likes to
-know at the time when they started working with the company.
-
--   Only one worker named Margaret Peacock was above 50 years when
-    he/she joined the company.
-
--   Rest all employees were below 45 years of age when they commenced
-    working with the company.
-
--   Overall the organisation was mixed of employees of age groups
-    ranging from 28 to 55 years.
-
-<table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 21%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 16%" />
-<col style="width: 21%" />
-</colgroup>
-<thead>
-<tr>
-<th>Employee Full Name</th>
-<th>Employee's Job Title</th>
-<th style="text-align: right;">Employee's Age</th>
-<th style="text-align: right;">Employee's Tenure</th>
-<th>Manager Full Name</th>
-<th>Manager's Title</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Anne Dodsworth</td>
-<td>Sales Representative</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">27</td>
-<td>Steven Buchanan</td>
-<td>Sales Manager</td>
-</tr>
-<tr>
-<td>Janet Leverling</td>
-<td>Sales Representative</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">30</td>
-<td>Andrew Fuller</td>
-<td>Vice President, Sales</td>
-</tr>
-<tr>
-<td>Michael Suyama</td>
-<td>Sales Representative</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">28</td>
-<td>Steven Buchanan</td>
-<td>Sales Manager</td>
-</tr>
-<tr>
-<td>Robert King</td>
-<td>Sales Representative</td>
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">28</td>
-<td>Steven Buchanan</td>
-<td>Sales Manager</td>
-</tr>
-<tr>
-<td>Laura Callahan</td>
-<td>Inside Sales Coordinator</td>
-<td style="text-align: right;">36</td>
-<td style="text-align: right;">28</td>
-<td>Andrew Fuller</td>
-<td>Vice President, Sales</td>
-</tr>
-<tr>
-<td>Steven Buchanan</td>
-<td>Sales Manager</td>
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">28</td>
-<td>Andrew Fuller</td>
-<td>Vice President, Sales</td>
-</tr>
-<tr>
-<td>Andrew Fuller</td>
-<td>Vice President, Sales</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">30</td>
-<td></td>
-<td> </td>
-</tr>
-<tr>
-<td>Nancy Davolio</td>
-<td>Sales Representative</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: right;">30</td>
-<td>Andrew Fuller</td>
-<td>Vice President, Sales</td>
-</tr>
-<tr>
-<td>Margaret Peacock</td>
-<td>Sales Representative</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">29</td>
-<td>Andrew Fuller</td>
-<td>Vice President, Sales</td>
-</tr>
-</tbody>
-</table>
-
-Figure 6: Employee’s and their manager’s information along with their
-age when they joined the company and tenure.
-
-The above figure 6 explains the HR team with requested details such as
-the names of employees and their current manager with the job title
-along with tenure and age when they joined the company.
-
--   All the employees currently either report to Andrew Fuller who is
-    the Vice President, of Sales or Steven Buchanan, the Sales Manager.
-
--   6 out of 9 workers are Sales Representatives and 1 is an Inside
-    Sales Coordinator.
-
--   Andrew Fuller, Janet Leverling and Nancy Davolio are working with
-    the company for the longest term over 30 years. However, the rest of
-    the employees are with the company for over 27 years.
-
-**4\] The Logistics Team wants to do a retrospection of their global
-performances over 1996-1997, in order to identify for which month they
-perform well.**
-
-Figure 7: Total number of orders greater than 20 between 1996 and 1997
-year.
-
-Figure 8: Total freights greater than 2500 between 1996 and 1997 year.
-
-The above figures 7 and 8, show the total orders greater than 20 and
-total freights greater than 2500 for months between 1996 – 1997 for
-which the Logistics team wants to assess their performance.
-
--   Over the period of 1 year, the total orders (which are more than
-    20), increased from an initial 31 in December 1996 to 48 by December
-    1997.
-
--   For the initial period of 5 months, the order total remained the
-    same, thereby increasing steadily for the rest of the year and
-    scored the highest 48 by end of 1997.
-
--   Total freights started at over 2500 in December 1996 and recorded
-    slightly more than 3500 by the end of 1997.
-
--   The total freight showed consistent progress with some exceptions
-    over the timeframe of 1 year.
-
--   Overall both the total orders (more than 20) and total freights
-    (more than 2500) endure improved scores and performance between
-    1996 - 1997.
-
-**5\] The Pricing Team wants to know which products had an unit price
-increase and the percentage increase was not between 10% and 30%.**
-
-Figure 9: Product's price details with percentage increase not between
-10% and 30%.
-
-<table>
-<colgroup>
-<col style="width: 32%" />
-<col style="width: 21%" />
-<col style="width: 21%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr>
-<th>Product Name</th>
-<th style="text-align: right;">Current Unit_Price</th>
-<th style="text-align: right;">Pervious Unit_Price</th>
-<th style="text-align: right;">Percentage Increase</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Singaporean Hokkien Fried Mee</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">9.8</td>
-<td style="text-align: right;">42.8571</td>
-</tr>
-<tr>
-<td>Queso Cabrales</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">50</td>
-</tr>
-</tbody>
-</table>
-
-Figure 10: Product’s current and previous prices with their percentage
-increase not between 10% and 30%.
-
-Figures 9 and 10 display, the names of the products with their current
-price and previous price based on the date the order was placed and
-accordingly their percentage increased over this period, not between 10%
-and 30% which the Product team is interested to examine.
-
--   Queso Cabrales item’s earlier and latest price was greater than
-    Singaporean Hokkien Fried Mee in both instances and thus its
-    percentage increase is more than the other.
-
--   The price of both products has increased significantly between their
-    initial and current order bookings. Singaporean Hokkien Fried Mee
-    product recorded over 42% increase and Queso Cabrales, doubled to a
-    50% increase.
-
--   These are only two food items for which a per cent increase is not
-    between 10% and 30%.
-
--   However, over the period of the initial and current order, both
-    these items’ unit price is still below $25.
-
-**6\] The** **Pricing Team wants to know how each category performs
+**2\] The** **Pricing Team wants to know how each category performs
 according to their below price range.**
 
 **1. Below $10**
@@ -727,7 +410,7 @@ conduct their assessment.
     higher volume of sales compared to the remaining categories’
     condiments, grains/cereals and produce.
 
-**7\] The Logistics Team wants to know what is the current state of our
+**3\] The Logistics Team wants to know what is the current state of our
 regional suppliers' stocks for each category of product. And their
 supplier region” as:**
 
@@ -788,7 +471,7 @@ regions given by the Logistics team in order to determine their state.
 -   In all, Europe and America stated a stronger position than Asia and
     Oceania.
 
-**8\] The Pricing Team wants to know for each currently offered product
+**4\] The Pricing Team wants to know for each currently offered product
 how their unit price compares against their categories average and
 median unit price. And their position against the category average and
 median unit price as:**
@@ -835,7 +518,7 @@ available product categories for the Pricing team to access.
     average price and the remaining category’s average price is below
     25.
 
-**9\] The Sales Team wants to build a list of KPIs to measure employees'
+**5\] The Sales Team wants to build a list of KPIs to measure employees'
 performances.**
 
 <img src="./attachments/projectreadme/media/image16.png"
@@ -969,7 +652,7 @@ Sales team can evaluate workers on additional attributes.
     to the top 3 performers in distinct orders, their total sales are
     noticeably higher over 120 thousand.
 
-**10\] The Sales Team wants to build another list of KPIs to measure
+**6\] The Sales Team wants to build another list of KPIs to measure
 employees' performances across each category.**
 
 <img src="./attachments/projectreadme/media/image17.png"
@@ -1034,3 +717,27 @@ a list of employee performance across categories.
 -   The sum of the percent of category sales is relatively even across
     the categories. However, the sum of the percent of employee sales
     across categories shows relevant fluctuations.
+
+<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+
+The repository is organized as follows:
+
+Project Organization
+------------
+
+    ├── LICENSE
+    ├── Makefile        <- Makefile with commands like `make data` or `make train`
+    ├── README.md       <- The top-level README for everyone using this project.
+    ├── sql
+    │   ├── *.sql       <- SQL queries (DML) for all the business inquiries.
+    │   ├── *.csv       <- SQL results fetched to csv files.
+    │   └── Northwind_PostgreSQL.sql  <- Database, schema creation and data insertion SQL queires.
+    │                                        
+    │
+    ├── reports            <- Final Project Report.pdf
+    │          
+    │
+    ├── attachments        <- Images and diagrams form README.md
+    │
+    └── requirements.txt   <- The requirements file for reproducing the analysis environment, 
+                              e.g. generated with `pip freeze > requirements.txt`
