@@ -1,0 +1,28 @@
+"category_name","price_range","total_amount","total_number_orders"
+Beverages,"1. Below $10",12681.85,97
+Beverages,"2. $10 - $20",90262.88,255
+Beverages,"3. $20 - $50",23526.69,28
+Beverages,"4. Over $50",141396.73,24
+Condiments,"2. $10 - $20",27299.40,88
+Condiments,"3. $20 - $50",78747.68,128
+Confections,"1. Below $10",9820.69,58
+Confections,"2. $10 - $20",52789.17,171
+Confections,"3. $20 - $50",82183.98,89
+Confections,"4. Over $50",22563.36,16
+Dairy Products,"1. Below $10",1648.12,32
+Dairy Products,"2. $10 - $20",14920.87,51
+Dairy Products,"3. $20 - $50",146782.58,229
+Dairy Products,"4. Over $50",71155.70,54
+Grains/Cereals,"1. Below $10",7834.64,49
+Grains/Cereals,"2. $10 - $20",16236.54,53
+Grains/Cereals,"3. $20 - $50",71673.38,94
+Meat/Poultry,"1. Below $10",4728.23,36
+Meat/Poultry,"3. $20 - $50",70698.95,100
+Meat/Poultry,"4. Over $50",87595.17,37
+Produce,"2. $10 - $20",2432.50,13
+Produce,"3. $20 - $50",55732.42,84
+Produce,"4. Over $50",41819.65,39
+Seafood,"1. Below $10",17978.95,101
+Seafood,"2. $10 - $20",47130.96,131
+Seafood,"3. $20 - $50",36979.93,71
+Seafood,"4. Over $50",29171.87,27
