@@ -294,6 +294,8 @@ in the DBeaver database tool.
                 > import psycopg2
 
     b.  Create connection variables.
+                host: <Hostname on which Northwind Postgres database resides> port: <Post number of the database listens to requests> user: <User name to connect to the database>
+password: <"Password for the user to connect to the database">
                 > host: &lt;Hostname on which Northwind Postgres database resides&gt;
                 >
                 > port: &lt;Post number of the database listens to requests&gt;
